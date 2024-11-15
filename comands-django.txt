@@ -1,0 +1,18 @@
+pip install django - установка django
+
+django-admin startproject test .
+- открытия django проекта
+
+python manage.py startapp test2 - открытия django файла
+
+python manage.py makemigrations - Эта команда используется для создания файлов
+миграции. Миграции - это автоматически созданные скрипты, которые описывают
+изменения в моделях (структурах данных) вашего проекта.
+
+python manage.py migrate - После создания файлов миграции с помощью
+makemigrations, вы используете команду migrate для фактического применения этих
+изменений к базе данных.
+
+python manage.py runserver - Запуск проекта
+
+python manage.py createsuperuser - Создание админа

@@ -3,7 +3,7 @@
 <html lang="en" >
 <head>
   <meta charset="UTF-8">
-  <title>CodePen - In Bloom: Fruity Ecommerce</title>
+  <title>Ecommerce</title>
   <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css'>
 <link rel='stylesheet' href='https://github.com/BlackrockDigital/startbootstrap-shop-homepage/blob/gh-pages/css/shop-homepage.css'>
 <link rel="stylesheet" href="{% static 'style.css' %}">
@@ -45,22 +45,30 @@
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                     <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
+                    <span class="icon-bar">1</span>
+                    <span class="icon-bar">2</span>
+                    <span class="icon-bar">3</span>
                 </button>
                 <a class="navbar-brand" href="#">in bl00m</a>
+
+<!--                <nav>-->
+<!--            <ul>-->
+<!--                <li><a href="/">Главная</a></li>-->
+
+<!--            </ul>-->
+<!--        </nav>-->
             </div>
+
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <a href="#"><i class="fa fa-heart-o"></i> </i>Our Story</a>
+                        <a href="#"><i class="fa fa-heart-o"></i> </i> О нас</a>
                     </li>
                     <li>
-                        <a href="#"><i class="fa fa-commenting-o"></i> Say Hi</a>
+                        <a href="/news"><i class="fa fa-commenting-o"></i> Новости</a>
                     </li>
-                    <li id="cart" onclick="cartFunction()"><a href="#"><i class="fa fa-shopping-basket"></i>  Your Basket</a></li>
+                    <li id="cart" onclick="cartFunction()"><a href="#"><i class="fa fa-shopping-basket"></i> Корзина</a></li>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->

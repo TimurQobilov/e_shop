@@ -54,11 +54,17 @@ class NewsCategory(models.Model):
 class News(models.Model):
     news_name = models.CharField(max_length=100)
     news_desc = models.TextField()
+    news_image = models.FileField(upload_to="news_image")
     news_category = models.ForeignKey(NewsCategory, on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return self.news_name
+
+    class Meta:
+        verbose_name = "News"
+        verbose_name_plural = "News"
+
 
 
 

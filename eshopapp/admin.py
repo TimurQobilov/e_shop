@@ -17,6 +17,13 @@ class ProductAdminModel(admin.ModelAdmin):
     list_display = ["id", "product_name", "product_cost"]
     ordering = ["-id"]
 
+@admin.register(UserCart)
+class UserCartAdminModel(admin.ModelAdmin):
+    search_fields = ["user_cart", "id"]
+    list_filter = ["created_at"]
+    ordering = ["-id"]
+
+
 
 @admin.register(NewsCategory)
 class NewsCategoryAdminModel(admin.ModelAdmin):

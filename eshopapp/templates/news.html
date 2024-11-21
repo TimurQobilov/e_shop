@@ -1,0 +1,55 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'new_style.css' %}">
+    <title>Новостной сайт</title>
+
+</head>
+<body>
+    <header class="container">
+        <div class="logo">
+            <img src="https://via.placeholder.com/50" alt="Логотип">
+            <h1>  </h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="/">Главная</a></li>
+
+            </ul>
+        </nav>
+        <form class="search-form">
+            <input type="text" placeholder="Поиск">
+            <button type="submit">Найти</button>
+        </form>
+    </header>
+{% for news in news %}
+    <main class="container">
+        <div class="news-grid">
+            <article class="news-card">
+                <img src="{{ news.news_image.url }}" alt="{{ news.news_name }}">
+                <div class="news-content">
+                    <h2>{{ news.news_name }}</h2>
+                    <p>{{ news.news_desc }}</p>
+                    <a href="#" class="read-more">Читать далее</a>
+                </div>
+            </article>
+{% endfor %}
+        </div>
+    </main>
+
+<!--    <section class="container social-links">-->
+<!--        <a href="#">FB</a>-->
+<!--        <a href="#">TW</a>-->
+<!--        <a href="#">IG</a>-->
+<!--        <a href="#">VK</a>-->
+<!--    </section>-->
+
+    <footer>
+        <p>© 2024 Новостной сайт. Все права защищены.</p>
+    </footer>
+</body>
+</html>

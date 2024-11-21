@@ -1,5 +1,6 @@
 from django.shortcuts import render
-from .models import Product, CategoryProduct
+from .models import Product, CategoryProduct, News
+
 
 # Create your views here.
 def home_page(request):
@@ -25,6 +26,13 @@ def product_page(request, pk):
     context = {'product': product}
 
     return  render(request, 'product.html', context)
+
+def news_page(request):
+    news = News.objects.all()
+    context = {'news': news}
+
+    return render(request, 'news.html', context)
+
 
 
 

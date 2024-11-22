@@ -2,57 +2,11 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Зарегистрироваться</title>
+    <title>Авторизоваться</title>
 </head>
 <body>
 
- <style>
-        body {
-            font-family: Arial, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background-color: #f4f4f4;
-        }
-        .registration-form {
-            background-color: white;
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            width: 300px;
-        }
-        .form-group {
-            margin-bottom: 15px;
-        }
-        input {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-        }
-        input:invalid {
-            border-color: red;
-        }
-        button {
-            width: 100%;
-            padding: 10px;
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-        .error {
-            color: red;
-            font-size: 0.8em;
-            margin-top: 5px;
-            display: none;
-        }
-    </style>
-</head>
-<body>
-    <form class="registration-form" id="registrationForm" novalidate method="POST" name="registerForm">
+<form class="registration-form" id="registrationForm" novalidate method="POST" name="registerForm">
         {% csrf_token %}
         <div class="form-group">
             <input
@@ -107,7 +61,7 @@
             </div>
         </div>
 
-        <button type="submit">Зарегистрироваться</button>
+        <button type="submit">Авторизоваться</button>
     </form>
 
     <script>

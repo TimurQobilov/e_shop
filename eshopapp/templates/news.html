@@ -1,55 +1,105 @@
 {% load static %}
-
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{% static 'new_style.css' %}">
-    <title>Новостной сайт</title>
-
+    <title>Новости</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+        header {
+            background-color: #4CAF50;
+            padding: 10px 20px;
+            color: white;
+            text-align: center;
+        }
+        nav {
+            text-align: right;
+            margin-top: -10px;
+            margin-right: 20px;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 15px;
+            font-weight: bold;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .news-item {
+            margin-bottom: 20px;
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+        .news-item:last-child {
+            border-bottom: none;
+        }
+        .news-item h2 {
+            margin: 0;
+            color: #4CAF50;
+        }
+        .news-item p {
+            margin: 5px 0 0;
+        }
+        .news-item a {
+            display: inline-block;
+            margin-top: 10px;
+            color: #4CAF50;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .news-item a:hover {
+            text-decoration: underline;
+        }
+        footer {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 0.9em;
+            color: #666;
+        }
+        img{
+            width: 100px;
+            height: 100px;
+        }
+    </style>
 </head>
 <body>
-    <header class="container">
-        <div class="logo">
-            <img src="https://via.placeholder.com/50" alt="Логотип">
-            <h1>  </h1>
-        </div>
+    <header>
+        <h1>Новости</h1>
         <nav>
-            <ul>
-                <li><a href="/">Главная</a></li>
-
-            </ul>
+            <a href="/">Главная</a>
+<!--            <a href="/about">О нас</a>-->
+<!--            <a href="/contact">Контакты</a>-->
         </nav>
-        <form class="search-form">
-            <input type="text" placeholder="Поиск">
-            <button type="submit">Найти</button>
-        </form>
     </header>
-{% for news in news %}
-    <main class="container">
-        <div class="news-grid">
-            <article class="news-card">
-                <img src="{{ news.news_image.url }}" alt="{{ news.news_name }}">
-                <div class="news-content">
-                    <h2>{{ news.news_name }}</h2>
-                    <p>{{ news.news_desc }}</p>
-                    <a href="#" class="read-more">Читать далее</a>
-                </div>
-            </article>
-{% endfor %}
+   {% for news in news %}
+   <div class="container">
+        <div class="news-item">
+            <img src="{{ news.news_image.url }}" alt="{{ news.news_name }}">
+            <h2>{{ news.news_name }}</h2>
+            <p>{{ news.news_desc }}</p>
+            <a href="#">Читать далее</a>
         </div>
-    </main>
-
-<!--    <section class="container social-links">-->
-<!--        <a href="#">FB</a>-->
-<!--        <a href="#">TW</a>-->
-<!--        <a href="#">IG</a>-->
-<!--        <a href="#">VK</a>-->
-<!--    </section>-->
-
+   </div>
+   {% endfor %}
     <footer>
-        <p>© 2024 Новостной сайт. Все права защищены.</p>
+        <p>&copy; 2024 Ваш сайт. Все права защищены.</p>
     </footer>
 </body>
 </html>

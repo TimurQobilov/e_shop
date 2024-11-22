@@ -49,4 +49,11 @@ def about(request):
     except:
         return redirect('about')
 
+def aboutus(request):
+    try:
+        if request.user.is_authenticated:
+            redirect("aboutus")
+            return render(request, 'aboutus.html')
+    except:
+        return redirect('aboutus')
 

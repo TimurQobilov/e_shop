@@ -1,93 +1,89 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Ваш мир электроники</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Авторизация и Регистрация</title>
     <style>
         body {
-            font-family: 'Arial', sans-serif;
+            font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
+            background-color: #f9f9f9;
+            color: #333;
         }
-        .header {
-            background-color: #333;
+        header {
+            background-color: #4CAF50;
+            padding: 10px 20px;
             color: white;
-            padding: 20px;
             text-align: center;
         }
-        .hero {
-            display: flex;
-            align-items: center;
-            justify-content: space-around;
-            padding: 50px;
-            background-color: white;
+        nav {
+            text-align: right;
+            margin-top: -10px;
+            margin-right: 20px;
         }
-        .hero-content {
-            max-width: 500px;
-        }
-        .hero-image img {
-            max-width: 400px;
-            border-radius: 10px;
-        }
-        .cta-button {
-            display: inline-block;
-            background-color: #4CAF50;
+        nav a {
             color: white;
-            padding: 10px 20px;
             text-decoration: none;
-            border-radius: 5px;
-            margin-top: 20px;
+            margin-left: 15px;
+            font-weight: bold;
         }
-        .featured-products {
+        nav a:hover {
+            text-decoration: underline;
+        }
+        .container {
+            max-width: 400px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        .btn-group {
             display: flex;
             justify-content: center;
             gap: 20px;
-            padding: 50px;
-            background-color: #f4f4f4;
         }
-        .product {
-            background-color: white;
-            padding: 20px;
+        .btn-group a {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+        .btn-group a:hover {
+            background-color: #45a049;
+        }
+        footer {
             text-align: center;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        }
-        .product img {
-            max-width: 200px;
-            height: 200px;
-            object-fit: cover;
+            margin-top: 20px;
+            font-size: 0.9em;
+            color: #666;
         }
     </style>
 </head>
 <body>
-    <header class="header">
-        <h1>E SHOP</h1>
-        <p>Новейшие технологии для вашей жизни</p>
+    <header>
+        <h1>Добро пожаловать</h1>
+<!--        <nav>-->
+<!--            <a href="/">Главная</a>-->
+<!--        </nav>-->
     </header>
-
-    <section class="hero">
-        <div class="hero-content">
-            <h2>Откройте мир инноваций</h2>
-            <p>Мы предлагаем лучшие электронные устройства по доступным ценам. Качество, надежность, современность.</p>
-            <a href="/registration" class="cta-button">Зарегистрироваться</a>
-            <a href="/login" class="cta-button">Авторизоваться</a>
+    <div class="container">
+        <h2>Выберите действие</h2>
+        <div class="btn-group">
+            <a href="/login">Авторизация</a>
+            <a href="/registration">Регистрация</a>
         </div>
-    </section>
-
-    <section class="featured-products">
-        <div class="product">
-            <h3>Смартфоны</h3>
-            <p>Новейшие модели</p>
-        </div>
-        <div class="product">
-            <h3>Ноутбуки</h3>
-            <p>Мощность и производительность</p>
-        </div>
-        <div class="product">
-            <h3>Планшеты</h3>
-            <p>Компактность и удобство</p>
-        </div>
-    </section>
+    </div>
+    <footer>
+        <p>&copy; 2024 Ваш сайт. Все права защищены.</p>
+    </footer>
 </body>
 </html>
+

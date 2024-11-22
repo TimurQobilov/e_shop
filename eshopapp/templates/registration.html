@@ -2,158 +2,153 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Зарегистрироваться</title>
-</head>
- <style>
+    <style>
         body {
             font-family: Arial, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
         }
-        .registration-form {
-            background-color: white;
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            width: 300px;
+        header {
+            background-color: #4CAF50;
+            padding: 10px 20px;
+            color: white;
+            text-align: center;
+        }
+        nav {
+            text-align: right;
+            margin-top: -10px;
+            margin-right: 20px;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 15px;
+            font-weight: bold;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+        .container {
+            max-width: 400px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
         }
         .form-group {
             margin-bottom: 15px;
         }
         input {
-            width: 100%;
+            width: 90%;
             padding: 10px;
             border: 1px solid #ddd;
-            border-radius: 4px;
+            border-radius: 5px;
+            font-size: 14px;
         }
-        input:invalid {
-            border-color: red;
+        input:focus {
+            outline: none;
+            border-color: #4CAF50;
+            box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
         }
         button {
-            width: 100%;
             padding: 10px;
+            width: 100%;
             background-color: #4CAF50;
             color: white;
             border: none;
-            border-radius: 4px;
+            border-radius: 5px;
             cursor: pointer;
+            font-weight: bold;
+        }
+        button:hover {
+            background-color: #45a049;
         }
         .error {
-            color: red;
-            font-size: 0.8em;
-            margin-top: 5px;
             display: none;
+            color: red;
+            font-size: 12px;
+            margin-top: 5px;
+            text-align: left;
+        }
+        footer {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 0.9em;
+            color: #666;
         }
     </style>
 </head>
 <body>
-    <form class="registration-form" id="registrationForm" novalidate method="POST" name="registerForm">
-        {% csrf_token %}
-        <div class="form-group">
-            <input
-                type="text"
-                name="username"
-                placeholder="Имя пользователя"
-                required
-                minlength="3"
-                maxlength="20"
-                pattern="[A-Za-zА-Яа-я0-9]+"
-            >
-            <div class="error" id="usernameError">
-                Имя пользователя должно быть от 3 до 20 символов
+    <header>
+        <h1>Регистрация</h1>
+<!--        <nav>-->
+<!--            <a href="/">Главная</a>-->
+<!--        </nav>-->
+    </header>
+    <div class="container">
+        <form class="registration-form" id="registrationForm" novalidate method="POST" name="registerForm">
+            {% csrf_token %}
+            <div class="form-group">
+                <input
+                    type="text"
+                    name="username"
+                    placeholder="Имя пользователя"
+                    required
+                    minlength="3"
+                    maxlength="20"
+                    pattern="[A-Za-zА-Яа-я0-9]+"
+                >
+                <div class="error" id="usernameError">
+                    Имя пользователя должно быть от 3 до 20 символов
+                </div>
             </div>
-        </div>
-
-        <div class="form-group">
-            <input
-                type="email"
-                name="email"
-                placeholder="Электронная почта"
-                required
-            >
-            <div class="error" id="emailError">
-                Введите корректный email
+            <div class="form-group">
+                <input
+                    type="email"
+                    name="email"
+                    placeholder="Электронная почта"
+                    required
+                >
+                <div class="error" id="emailError">
+                    Введите корректный email
+                </div>
             </div>
-        </div>
-
-        <div class="form-group">
-            <input
-                type="password"
-                name="password1"
-                placeholder="Пароль"
-                required
-                minlength="8"
-                pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
-            >
-            <div class="error" id="passwordError">
-                Пароль должен содержать минимум 8 символов, включая цифры, строчные и заглавные буквы
+            <div class="form-group">
+                <input
+                    type="password"
+                    name="password1"
+                    placeholder="Пароль"
+                    required
+                    minlength="8"
+                    pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+                >
+                <div class="error" id="passwordError">
+                    Пароль должен содержать минимум 8 символов, включая цифры, строчные и заглавные буквы
+                </div>
             </div>
-        </div>
-
-        <div class="form-group">
-            <input
-                type="password"
-                name="password2"
-                placeholder="Подтвердите пароль"
-                required
-            >
-            <div class="error" id="confirmPasswordError">
-                Пароли не совпадают
+            <div class="form-group">
+                <input
+                    type="password"
+                    name="password2"
+                    placeholder="Подтвердите пароль"
+                    required
+                >
+                <div class="error" id="confirmPasswordError">
+                    Пароли не совпадают
+                </div>
             </div>
-        </div>
-
-        <button type="submit">Зарегистрироваться</button>
-    </form>
-
-    <script>
-        const form = document.getElementById('registrationForm');
-        const inputs = form.querySelectorAll('input');
-
-        form.addEventListener('submit', function(event) {
-            let isValid = true;
-
-            inputs.forEach(input => {
-                if (!validateInput(input)) {
-                    isValid = false;
-                }
-            });
-
-            if (isValid) {
-
-                alert('Форма успешно прошла валидацию!');
-            }
-        });
-
-        inputs.forEach(input => {
-            input.addEventListener('input', () => {
-                validateInput(input);
-            });
-        });
-
-        function validateInput(input) {
-            const errorElement = document.getElementById(`${input.name}Error`);
-
-            if (input.validity.valid) {
-                input.style.borderColor = 'green';
-
-                if (input.name === 'confirmPassword') {
-                    const password = document.querySelector('input[name="password"]');
-                    if (input.value !== password.value) {
-                        input.style.borderColor = 'red';
-                        errorElement.style.display = 'block';
-                        return false;
-                    }
-                }
-                return true;
-            } else {
-                input.style.borderColor = 'red';
-                return false;
-            }
-        }
-    </script>
-
+            <button type="submit">Зарегистрироваться</button>
+        </form>
+    </div>
+    <footer>
+        <p>&copy; 2024 Ваш сайт. Все права защищены.</p>
+    </footer>
 </body>
 </html>

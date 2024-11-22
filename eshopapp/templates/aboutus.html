@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>О нас</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        header nav {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        header nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        header nav a:hover {
+            text-decoration: underline;
+        }
+        section {
+            margin-top: 20px;
+        }
+        section h2 {
+            color: #4CAF50;
+        }
+        footer {
+            text-align: center;
+            margin-top: 30px;
+            padding: 10px 0;
+            background-color: #4CAF50;
+            color: white;
+        }
+        .team {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: space-around;
+        }
+        .team-member {
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 10px;
+            width: 200px;
+            text-align: center;
+        }
+        .team-member img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>О нас</h1>
+        <nav>
+            <a href="/">Главная</a>
+            <a href="#mission">Наша миссия</a>
+            <a href="#team">Наша команда</a>
+        </nav>
+    </header>
+    <div class="container">
+        <section id="mission">
+            <h2>Наша миссия</h2>
+            <p>Мы стремимся предоставлять лучшие решения для наших клиентов, сочетая инновации, качество и внимание к деталям. Наши ценности основаны на доверии, профессионализме и ориентации на результат.</p>
+        </section>
+        <section id="team">
+            <h2>Наша команда</h2>
+            <div class="team">
+                <div class="team-member">
+                    <img src="https://via.placeholder.com/100" alt="Team Member">
+                    <h3>Иван Иванов</h3>
+                    <p>Генеральный директор</p>
+                </div>
+                <div class="team-member">
+                    <img src="https://via.placeholder.com/100" alt="Team Member">
+                    <h3>Мария Петрова</h3>
+                    <p>Менеджер проектов</p>
+                </div>
+                <div class="team-member">
+                    <img src="https://via.placeholder.com/100" alt="Team Member">
+                    <h3>Алексей Смирнов</h3>
+                    <p>Ведущий разработчик</p>
+                </div>
+            </div>
+        </section>
+    </div>
+    <footer>
+        <p>&copy; 2024 Наша компания. Все права защищены.</p>
+    </footer>
+</body>
+</html>

@@ -1,15 +1,23 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from .models import Product, CategoryProduct, News
 
 
+
 # Create your views here.
+
+
 def home_page(request):
-    products = Product.objects.all()
-    categories = CategoryProduct.objects.all()
+    try:
+        if request.user.is_authenticated:
+            products = Product.objects.all()
+            categories = CategoryProduct.objects.all()
 
-    context = {'products': products, 'categories' : categories}
+            context = {'products': products, 'categories' : categories}
 
-    return render(request, 'index.html', context)
+            return render(request, 'index.html', context)
+        return redirect('about')
+    except:
+        return redirect('about')
 
 
 def category_page(request, pk):
@@ -33,25 +41,12 @@ def news_page(request):
 
     return render(request, 'news.html', context)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+def about(request):
+    try:
+        if request.user.is_authenticated:
+            redirect("home_page")
+        return render(request, 'about.html')
+    except:
+        return redirect('about')
 
 

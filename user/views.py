@@ -20,10 +20,10 @@ def register_view(request):
             return redirect('login')
         else:
             form = UserRegisterForm()
-            return render(request, 'register.html',{"form": form})
+            return render(request, 'registration.html',{"form": form})
     else:
         form = UserRegisterForm()
-        return render(request, 'register.html',{"form": form})
+        return render(request, 'registration.html',{"form": form})
 
 def login_view(request):
     if request.method == "POST":

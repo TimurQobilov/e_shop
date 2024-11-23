@@ -1,75 +1,139 @@
 {% load static %}
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Категория Продуктов</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Категория товаров</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-        .category-title {
-            text-align: center;
-            font-size: 2.5em;
-            margin-bottom: 30px;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
             color: #333;
         }
-        .products-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-            gap: 20px;
+        header {
+            background-color: #4CAF50;
+            padding: 10px 20px;
+            color: white;
+            text-align: center;
         }
-        .product-card {
+        nav {
+            text-align: right;
+            margin-top: -10px;
+            margin-right: 20px;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 15px;
+            font-weight: bold;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+        .main-content {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            background: #fff;
             border: 1px solid #ddd;
-            border-radius: 8px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .slider {
+            margin-bottom: 20px;
+        }
+        .slider img {
+            width: 100%;
+            border-radius: 10px;
+        }
+        .page-title {
+            text-align: center;
+            margin: 20px 0;
+            font-size: 24px;
+            color: #4CAF50;
+            font-weight: bold;
+        }
+        .categories {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+        .category-card {
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 10px;
             padding: 15px;
             text-align: center;
-            transition: transform 0.3s;
+            width: 250px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
-        .product-card:hover {
-            transform: scale(1.05);
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        }
-        .product-image {
+        .category-card img {
             max-width: 100%;
-            height: 200px;
-            object-fit: cover;
-            margin-bottom: 10px;
+            height: auto;
+            border-radius: 8px;
         }
-        .product-name {
+        .category-card h3 {
+            margin: 10px 0;
+            color: #4CAF50;
+        }
+        .category-card button {
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
             font-weight: bold;
-            margin-bottom: 5px;
         }
-        .product-price {
-            color: #007bff;
+        .category-card button:hover {
+            background-color: #45a049;
+        }
+        footer {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 0.9em;
+            color: #666;
         }
     </style>
 </head>
 <body>
-
-    <h1 class="category-title">{{category.category_name}}</h1>
-
-    <div class="products-grid">
-        <div class="product-card">
-           {% for product in products %}
-            <img src="{{ product.product_image.url }}" alt="{{ product.product_name }}" class="product-image">
-            <div class="product-name">{{ product.product_name}}</div>
-<div class="product-price">{{ product.product_cost }}</div>
-<div class="product-descr">{{ product.product_descr }}</div>
-            <a href="/product/{{ product.id }}" class="icon-link">
-            Подробнее
-          <svg class="bi"><use xlink:href="#chevron-right"></use></svg>
-        </a>
-<button class="btn btn-primary btn-sm">КУПИТЬ</button>
-        {% endfor %}
+    <header>
+        <h1>Категория товаров</h1>
+        <nav>
+           <a href="/">Главная</a>
+            <a href="/aboutus">О нас</a>
+            <a href="/news">Новости</a>
+            <a href="/cart">Корзина</a>
+            <a href="/logout">Выйти</a>
+        </nav>
+    </header>
+    <div class="main-content">
+        <!-- Верхний баннер -->
+        <div class="slider">
+            <img src="https://via.placeholder.com/1200x300" alt="Баннер">
         </div>
 
-    </div>
+        <!-- Название категории -->
+        <div class="page-title">{{category.category_name}}</div>
 
-
+        <!-- Категории товаров -->
+        {% for product in products %}
+        <div class="categories">
+            <div class="category-card">
+                <img src="{{ product.product_image.url }}" alt="{{ product.product_name }}">
+                <h3>{{ product.product_name }}</h3>
+                <p>{{ product.product_descr }}</p>
+                <p><strong>{{ product.product_cost }}</strong></p>
+                <button><a href="/product/{{ product.id }}" class="icon-link">Просмотр</a></button>
+            </div>
+        </div>
+  {% endfor %}
+    <footer>
+        <p>&copy; 2024 Ваш магазин товаров. Все права защищены.</p>
+    </footer>
 </body>
-
 </html>

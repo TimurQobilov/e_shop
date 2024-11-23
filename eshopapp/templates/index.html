@@ -131,6 +131,7 @@
     <header>
         <h1>Интернет-магазин телефонов</h1>
         <nav>
+            <a href="/">Главная</a>
             <a href="/aboutus">О нас</a>
             <a href="/news">Новости</a>
             <a href="/cart">Корзина</a>
@@ -141,6 +142,7 @@
         <!-- Слайдер -->
         <div class="slider">
             <img src="https://via.placeholder.com/800x300" alt="Баннер 1">
+
         </div>
         <!-- Сайдбар -->
         <div class="sidebar">
@@ -160,9 +162,10 @@
         <div class="products">
             <div class="product-card">
                 <img src="{{ product.product_image.url }}" alt="Phone 1">
-                <h3>{{ product.product_name}}</h3>
+                <h3> <a href="/product/{{ product.id }}" class="icon-link">{{ product.product_name}}</a></h3>
                 <p>{{ product.product_descr }}</p>
                 <p><strong>{{ product.product_cost }}</strong></p>
+                <a href="/product/{{ product.id }}" class="icon-link">Просмотр</a>
                 <button>Добавить в корзину</button>
             </div>
         </div>

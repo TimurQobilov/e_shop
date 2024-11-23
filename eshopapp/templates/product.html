@@ -1,103 +1,190 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Смартфон Apple iPhone 14</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Страница товара</title>
     <style>
         body {
             font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+        header {
+            background-color: #4CAF50;
+            padding: 10px 20px;
+            color: white;
+            text-align: center;
+        }
+        nav {
+            text-align: right;
+            margin-top: -10px;
+            margin-right: 20px;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 15px;
+            font-weight: bold;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+        .main-content {
             max-width: 1200px;
-            margin: 0 auto;
+            margin: 20px auto;
             padding: 20px;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
-        .product-gallery {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-        .main-image {
-            max-width: 100%;
-            height: 500px;
-            object-fit: cover;
+        .slider {
             margin-bottom: 20px;
+        }
+        .slider img {
+            width: 100%;
             border-radius: 10px;
         }
-        .thumbnails {
+        .product-details {
             display: flex;
-            gap: 10px;
+            gap: 20px;
+            margin-bottom: 20px;
         }
-        .thumbnail {
-            width: 80px;
-            height: 80px;
-            object-fit: cover;
-            border-radius: 5px;
-            cursor: pointer;
-            opacity: 0.6;
-            transition: opacity 0.3s;
-        }
-        .thumbnail:hover, .thumbnail.active {
-            opacity: 1;
+        .product-details img {
+            max-width: 300px;
+            border-radius: 10px;
         }
         .product-info {
-            padding: 20px;
+            flex: 1;
         }
-        .product-title {
-            font-size: 2em;
-            margin-bottom: 10px;
+        .product-info h1 {
+            color: #4CAF50;
         }
-        .product-price {
-            font-size: 1.5em;
-            color: #007bff;
-            margin-bottom: 20px;
+        .product-info p {
+            margin: 10px 0;
         }
-        .product-description {
-            margin-bottom: 20px;
-            line-height: 1.6;
-        }
-        .specifications {
-            border-top: 1px solid #ddd;
-            padding-top: 20px;
-        }
-        .spec-item {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 10px;
-        }
-        .add-to-cart {
-            width: 100%;
-            padding: 15px;
-            background-color: #007bff;
+        .product-info button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
             color: white;
             border: none;
             border-radius: 5px;
-            font-size: 1em;
             cursor: pointer;
-            transition: background-color 0.3s;
+            font-weight: bold;
         }
-        .add-to-cart:hover {
-            background-color: #0056b3;
+        .product-info button:hover {
+            background-color: #45a049;
+        }
+        .related-products {
+            margin-top: 20px;
+        }
+        .related-products h2 {
+            color: #4CAF50;
+        }
+        .products {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+        .product-card {
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 15px;
+            text-align: center;
+            width: 250px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .product-card img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+        .product-card h3 {
+            margin: 10px 0;
+            color: #4CAF50;
+        }
+        .product-card p {
+            font-size: 14px;
+            color: #666;
+        }
+        .product-card button {
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        .product-card button:hover {
+            background-color: #45a049;
+        }
+        footer {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 0.9em;
+            color: #666;
         }
     </style>
 </head>
-
 <body>
-    <div class="product-gallery">
-        <img src="{{ product.product_image.url }}" alt="{{ product.product_name}}" class="main-image">
-    </div>
-
-    <div class="product-info">
-        <h1 class="product-title">{{ product.product_name}}</h1>
-        <div class="product-price">{{ product.product_cost }}</div>
-
-        <div class="product-description">
-            {{ product.product_descr }}
+    <header>
+        <h1>Интернет-магазин телефонов</h1>
+        <nav>
+            <a href="/">Главная</a>
+            <a href="/aboutus">О нас</a>
+            <a href="/news">Новости</a>
+            <a href="/cart">Корзина</a>
+            <a href="/logout">Выйти</a>
+        </nav>
+    </header>
+    <div class="main-content">
+        <!-- Верхний слайдер -->
+        <div class="slider">
+            <img src="https://via.placeholder.com/1200x300" alt="Баннер">
         </div>
 
-        <button class="add-to-cart">Добавить в корзину</button>
-        <a href="/">Вернуться на главный экран</a>
-    </div>
+        <!-- Детали товара -->
+        <div class="product-details">
+            <img src="{{ product.product_image.url }}" alt="{{ product.product_name}}">
+            <div class="product-info">
+                <h1>{{ product.product_name}}</h1>
+                <p>{{ product.product_descr }}</p>
+                <p><strong>{{ product.product_cost }}</strong></p>
+                <button>Добавить в корзину</button>
+            </div>
+        </div>
+
+<!--        &lt;!&ndash; Средний слайдер &ndash;&gt;-->
+<!--        <div class="slider">-->
+<!--            <img src="https://via.placeholder.com/1200x300" alt="Баннер">-->
+<!--        </div>-->
+
+        <!-- Связанные товары -->
+
+
+<!--        <div class="related-products">-->
+<!--            <h2>Рекомендуемые товары</h2>-->
+<!--            <div class="products">-->
+<!--                <div class="product-card">-->
+<!--                    <img src="{{ product.product_image.url }}" alt="{{ product.product_name}}">-->
+<!--                    <div class="product-info">-->
+<!--                    <h3> <a href="/product/{{ product.id }}" class="icon-link">{{ product.product_name}}</a></h3>-->
+<!--                    <p>{{ product.product_descr }}</p>-->
+<!--                    <p><strong>{{ product.product_cost }}</strong></p>-->
+<!--                    <button>Добавить в корзину</button>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+    <footer>
+        <p>&copy; 2024 Ваш магазин телефонов. Все права защищены.</p>
+    </footer>
 </body>
 </html>
+

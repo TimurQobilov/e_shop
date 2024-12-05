@@ -1,6 +1,8 @@
+import telebot
 from django.shortcuts import render,redirect
-from .models import Product, CategoryProduct, News
+from .models import Product, CategoryProduct, News, UserCart
 
+bot = telebot.TeleBot("7870735481:AAGZtMthZdqGBFIDKVJAKRGxhhwYEpUgnfQ")
 
 
 # Create your views here.
@@ -56,4 +58,57 @@ def aboutus(request):
             return render(request, 'aboutus.html')
     except:
         return redirect('aboutus')
+
+def add_product_to_cart(request, pk):
+    if request.method == "POST":
+        checker = Product.objects.get(id=pk)
+        if checker.product_count >= int(request.POST.get('pr_count')):
+            UserCart.objects.create(user_id = request.user.id, product=checker, product_count=int(request.POST.get
+                                                                                                  ('pr_count')))
+            print("SUCCESS")
+
+            return  redirect('user_cart')
+        else:
+            print("ERROR")
+            return redirect("home")
+
+def user_cart(request):
+    cart = UserCart.objects.filter(user_id=request.user.id).all()
+    if request.method == "POST":
+        main_text = 'У вас новый заказ'
+
+        for i in cart:
+            main_text += (f"\n Товар: {i.product.product_name}"
+                          f"\n Кол-во: {i.product_count}"
+                          f"\n ID-пользователя: {i.user_id}"
+                          f"\n Цена: {i.product.product_cost}")
+            bot.send_message(-4652600005, main_text)
+            cart.delete()
+            return redirect('home')
+
+    else:
+        return render(request, "user_cart.html", context={"cart": cart})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

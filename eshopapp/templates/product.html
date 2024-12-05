@@ -156,7 +156,11 @@
                 <h1>{{ product.product_name}}</h1>
                 <p>{{ product.product_descr }}</p>
                 <p><strong>{{ product.product_cost }}</strong></p>
-                <button>Добавить в корзину</button>
+                <form action="/add_to_cart/{{ product.id }}" method="post">
+                    {% csrf_token %}
+                    <input type="number" min="1" value="1" name="pr_count">
+                    <button class="btn btn-success" type="submit">Добавить в корзину</button>
+                </form>
             </div>
         </div>
 
